@@ -1,0 +1,73 @@
+@use '../../styles/utils/variable.scss' as variable;
+@use '../../styles/utils/mixins.scss' as mixins;
+
+.page-not-found {
+  background-image: url(../../../public/img/page-not-found.png);
+  margin: 0 auto;
+  max-width: 800px;
+  padding: 390px 0 130px;
+
+  background-repeat: no-repeat;
+  background-size: auto 280px;
+  background-position: center 70px;
+
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+
+  text-align: center;
+  color: variable.$primary;
+  html.dark & {
+    color: variable.$icons;
+  }
+
+  &__title {
+    font-size: 3.2em;
+    html.dark & {
+      color: variable.$icons;
+    }
+  }
+  &__description {
+    font-size: 1.4em;
+    font-weight: 500;
+    padding: 20px 0 20px;
+    line-height: 1.5;
+    html.dark & {
+      color: variable.$icons;
+    }
+  }
+  &__back-button {
+    background-color: variable.$primary;
+    html.dark & {
+      color: variable.$white;
+    }
+    color: variable.$white;
+    font-size: 1.4em;
+    width: 175px;
+    height: 48px;
+    box-sizing: border-box;
+
+    transition: box-shadow variable.$button-transition-time ease;
+
+    border-radius: 4px;
+
+    &:hover {
+      box-shadow: 0 5px 13px rgba(18, 25, 39, 0.4);
+    }
+  }
+}
+
+@include mixins.on-tablet {
+  .page-not-found {
+    &__title {
+      font-size: 4.8em;
+    }
+  }
+}
+
+.title {
+  color: variable.$primary;
+  html.dark & {
+    color: variable.$icons;
+  }
+}

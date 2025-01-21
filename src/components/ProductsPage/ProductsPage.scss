@@ -1,0 +1,127 @@
+@use '../../styles/utils/mixins.scss';
+@use '../../styles/utils/variable.scss';
+
+.products {
+  padding-top: 24px;
+  padding-bottom: 64px;
+
+  @include mixins.on-tablet {
+    padding-bottom: 80px;
+  }
+
+  &__quantity {
+    font-weight: 600;
+    font-size: 1.4em;
+    line-height: 1.5;
+    color: variable.$secondary;
+    font-family: variable.$font-family;
+    margin-top: 8px;
+    margin-bottom: 32px;
+
+    @include mixins.on-tablet {
+      margin-bottom: 40px;
+    }
+  }
+  &__control {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  &__filters {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 24px;
+    width: 270px;
+  }
+  &__label {
+    font-weight: 700;
+    font-size: 1.2em;
+    line-height: 1.27;
+    color: variable.$secondary;
+    margin-left: 4px;
+  }
+
+  &__select {
+    width: 130px;
+    min-height: 40px;
+    font-size: 1.4em;
+  }
+
+  &__selectList {
+    width: 100%;
+    min-height: 40px;
+    font-family: variable.$font-family;
+    font-size: 1.4em;
+    font-weight: 700;
+    line-height: 1.5;
+  }
+}
+.select .products__selectList {
+  border-radius: 6px;
+  &:hover {
+    border: 1.5px solid #000;
+  }
+  &:focus {
+    border: 1px solid #000;
+    outline: none;
+  }
+}
+
+.select select:not([multiple]) {
+  border: 1px solid variable.$secondary;
+  outline: none;
+  html.dark & {
+    background-color: variable.$icons;
+    color: variable.$primary;
+  }
+}
+.select select option {
+  background-color: variable.$white;
+  font-weight: 600;
+  html.dark & {
+    background-color: variable.$icons;
+    color: variable.$primary;
+  }
+}
+.select select {
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.navbar-link:not(.is-arrowless)::after,
+.select:not(.is-multiple):not(.is-loading)::after {
+  border-color: variable.$primary;
+}
+.select select {
+  border-radius: 5px;
+}
+
+.bread-crumbs {
+  margin-bottom: 24px;
+
+  @include mixins.on-tablet {
+    margin-bottom: 40px;
+  }
+}
+
+.container-custom {
+  display: flex;
+  justify-content: center;
+  justify-self: center;
+  flex-direction: column;
+  padding-top: 24px;
+  max-width: 316px;
+  margin: 0 auto;
+
+  @include mixins.on-tablet {
+    max-width: 640px;
+  }
+
+  @include mixins.on-tablet3 {
+    max-width: 854px;
+  }
+
+  @include mixins.on-desktop {
+    max-width: 1200px;
+  }
+}

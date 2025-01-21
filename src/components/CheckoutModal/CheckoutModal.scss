@@ -1,0 +1,197 @@
+@use '../../styles/utils/variable.scss' as variable;
+@use '../../styles/utils/mixins.scss' as mixins;
+
+.choice-button {
+  background: linear-gradient(45deg, #89939a, #3e4246, #111112);
+  color: variable.$white;
+  font-family: variable.$font-family;
+  font-size: 1em;
+  width: 175px;
+  height: 48px;
+  box-sizing: border-box;
+  transition: box-shadow variable.$button-transition-time ease;
+  border-radius: variable.$global-border-radius;
+
+  html.dark & {
+    background: linear-gradient(45deg, #d6249f, #285aeb);
+    color: variable.$white;
+  }
+  &:hover {
+    box-shadow: 0 5px 13px rgba(18, 25, 39, 0.4);
+  }
+
+  &-confirm {
+    width: 100%;
+    background: linear-gradient(45deg, #89939a, #3e4246, #111112);
+    html.dark & {
+      background: linear-gradient(45deg, #d6249f, #285aeb);
+    }
+    &:active {
+      color: white;
+    }
+  }
+
+  &-cancel {
+    background: variable.$elements;
+    border: 1px solid variable.$primary;
+    color: variable.$primary;
+    width: 100%;
+    html.dark & {
+      background-color: variable.$elements-dark;
+    }
+    &:hover {
+      color: variable.$white;
+    }
+  }
+}
+
+.modal {
+  font-size: 1.4em;
+  background-color: rgba(0, 0, 0, 0.7);
+
+  &-card {
+    max-width: calc(100% - 20px);
+    border-radius: variable.$global-border-radius;
+    html.dark & {
+      border: 0.5px solid variable.$purple;
+    }
+
+    @include mixins.on-tablet {
+      width: 90%;
+    }
+    @include mixins.on-desktop {
+      width: 1060px;
+    }
+    &-head {
+      padding: 60px 0 0;
+      box-shadow: none;
+      text-align: center;
+      text-transform: capitalize;
+      html.dark & {
+        background-color: variable.$primary-dark;
+      }
+      @include mixins.on-tablet {
+        padding: 60px 0 0 0;
+      }
+    }
+
+    &-title {
+      font-size: 1.4em;
+      font-weight: bold;
+      position: relative;
+      html.dark & {
+        color: variable.$text-dark;
+        background-color: variable.$primary-dark;
+      }
+      @include mixins.on-tablet {
+        font-size: 2em;
+      }
+    }
+
+    &-body {
+      max-height: 100%;
+      width: 100%;
+      background-color: variable.$white;
+      html.dark & {
+        background-color: variable.$primary-dark;
+      }
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+      @include mixins.on-tablet {
+        width: 100%;
+      }
+      @include mixins.on-tablet2 {
+        padding: 25px 100px 30px;
+      }
+      @include mixins.on-tablet3 {
+        padding: 25px 50px 25px;
+      }
+    }
+
+    &-foot {
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      gap: 30px;
+      font-size: 1.4em;
+      border-top: 1px solid variable.$elements;
+      padding: 40px 30px;
+
+      html.dark & {
+        background-color: variable.$modalBg-dark;
+
+        border-top: 0.5px solid variable.$primary;
+      }
+
+      @include mixins.on-tablet {
+        padding: 30px 50px;
+      }
+      @include mixins.on-tablet {
+        padding: 30px 100px;
+      }
+      @include mixins.on-tablet3 {
+        padding: 30px 150px;
+      }
+      @include mixins.on-desktop {
+        padding: 30px 200px;
+      }
+    }
+  }
+}
+
+.modal-background {
+  background-color: variable.$shadow;
+}
+.choice-button--close.btn {
+  html.dark & {
+    background: transparent;
+    border: 1px solid #905bff;
+  }
+}
+.choice-button--confirm.btn--dark {
+  background: linear-gradient(45deg, #d6249f, #285aeb);
+  border: 1px solid #905bff;
+}
+.buttons {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: center;
+  width: 100%;
+  gap: 20px;
+
+  @include mixins.on-tablet2 {
+    .cancel,
+    .confirm {
+      width: 100%;
+    }
+  }
+}
+
+.confirm,
+.cancel {
+  width: 100%;
+  @include mixins.on-tablet {
+    display: flex;
+    flex-direction: column;
+  }
+  @include mixins.on-desktop {
+    max-width: 300px;
+  }
+}
+
+.price-block {
+  font-size: 1.4em;
+
+  text-align: center;
+  &__text {
+    font-size: 2rem;
+    html.dark & {
+      color: variable.$icons;
+    }
+    & span {
+      font-weight: 700;
+      font-size: 2.8rem;
+    }
+  }
+}

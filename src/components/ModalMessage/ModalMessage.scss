@@ -1,0 +1,56 @@
+@use '../../styles/utils/variable.scss' as variable;
+@use '../../styles/utils/mixins.scss' as mixins;
+
+.head {
+  display: flex;
+  align-items: center;
+  max-width: 92%;
+  width: 100vw;
+  height: 100px;
+  border-radius: 20px;
+  font-size: 1rem;
+  text-align: center;
+  background-color: variable.$white;
+  overflow-x: hidden;
+
+  html.dark & {
+    background-color: variable.$primary-dark;
+    border: 1px solid variable.$purple;
+  }
+}
+
+.modal-background {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.road {
+  width: 100%;
+  animation: ride 1.8s cubic-bezier(0.7, 0.9, 1, 0) infinite;
+}
+
+@include mixins.on-tablet2 {
+  .head {
+    height: 200px;
+    border-radius: 20px;
+    font-size: 1.4em;
+    text-align: center;
+    max-width: 700px;
+  }
+}
+@keyframes ride {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(100%);
+  }
+}
+
+.movingTruck {
+  width: 50px;
+  html.dark & {
+    content: url('./../../../public/img/icons/delivery-violet.png');
+  }
+}

@@ -1,0 +1,116 @@
+@use '../../styles/utils/variable.scss' as variable;
+@use '../../styles/utils/mixins.scss' as mixins;
+
+.cart {
+  padding: 20px;
+  padding-bottom: 50px;
+
+  &__title {
+    margin-bottom: 20px;
+  }
+
+  &__background {
+    background-image: url('../../../public/img/cart-is-empty.png');
+
+    margin: 0 auto;
+    padding: 370px 0 130px;
+
+    background-repeat: no-repeat;
+    background-size: auto 50%;
+    background-position: center 100px;
+
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+    text-align: center;
+    color: variable.$primary;
+
+    html.dark & {
+      color: variable.$icons;
+    }
+
+    &__title {
+      padding-top: 20px;
+      font-weight: 700;
+      font-size: 2em;
+    }
+  }
+}
+.cart-block {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  column-gap: 20px;
+  row-gap: 40px;
+
+  @include mixins.on-desktop-mini {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+  &__list {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 30px;
+    overflow: hidden;
+    max-height: 10000px; /* Встановлюємо висоту, достатню для всіх елементів у списку */
+    transition: max-height 0.5s ease-out; /* Додаємо анімацію для зміни висоти */
+  }
+}
+.checkout-block {
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  border: 1px solid variable.$elements;
+  font-size: 1.4em;
+  border-radius: variable.$global-border-radius;
+  text-align: center;
+  gap: 20px;
+  background-color: variable.$white;
+
+  @include mixins.on-tablet3 {
+    max-width: 350px;
+    max-height: 200px;
+  }
+
+  html.dark & {
+    border: 1px solid variable.$elements-dark;
+    background-color: variable.$primary-dark;
+    color: variable.$icons;
+  }
+  &__header {
+    margin-bottom: 30px;
+
+    &-title {
+      font-size: 2em;
+      font-weight: 800;
+    }
+  }
+  &__check {
+    width: 100%;
+    min-height: 48px;
+    &:active {
+      color: white;
+    }
+  }
+  &__products-quantity {
+    font-weight: 600;
+  }
+}
+
+@include mixins.on-tablet {
+  .cart {
+    &__background {
+      &__title {
+        padding-top: 20px;
+        font-weight: 700;
+        font-size: 3.4em;
+      }
+    }
+  }
+}

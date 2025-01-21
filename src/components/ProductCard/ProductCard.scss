@@ -1,0 +1,219 @@
+@use '../../styles/utils/variable.scss';
+@use '../../styles/utils/mixins.scss';
+@use '../../App.scss' as app;
+
+.product-card {
+  max-width: 290px;
+  height: 100%;
+  padding: 30px;
+  border-radius: variable.$global-border-radius;
+  border: 1px solid variable.$elements;
+  font-family: variable.$font-family;
+  transition: box-shadow variable.$button-transition-time ease;
+  background-color: variable.$white;
+
+  @include mixins.on-tablet {
+    max-width: 280px;
+  }
+  @include mixins.on-tablet2 {
+    max-width: 280px;
+  }
+  @include mixins.on-desktop {
+    max-width: 272px;
+  }
+
+  html.dark & {
+    border: 1px solid variable.$primary-dark;
+    background-color: variable.$primary-dark;
+  }
+
+  &:hover {
+    box-shadow: 0px 3px 13px 0px variable.$shadow;
+  }
+
+  &__image {
+    display: block;
+    width: 100%;
+    height: 190px;
+
+    object-fit: contain;
+    transition: transform variable.$button-transition-time ease;
+
+    &:hover {
+      transform: scale(variable.$transform-scale);
+    }
+  }
+
+  &__title {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    overflow: hidden;
+    margin: 24px 0px 8px;
+    height: 42px;
+    font-size: 1.4em;
+    font-weight: 600;
+    line-height: 1.5;
+    color: variable.$primary;
+    transition: all variable.$button-transition-time ease;
+
+    html.dark & {
+      color: variable.$text-dark;
+    }
+
+    &:hover {
+      transform: scale(variable.$transform-scale);
+    }
+  }
+
+  &__price {
+    margin-bottom: 8px;
+    gap: 8px;
+  }
+
+  &__price-value {
+    font-size: 22px;
+    font-weight: 800;
+    line-height: 1.4;
+    color: variable.$primary;
+
+    html.dark & {
+      color: variable.$text-dark;
+    }
+  }
+
+  &__price-value--discount {
+    font-size: 22px;
+    font-weight: 600;
+    line-height: 1.4;
+    color: variable.$secondary;
+    text-decoration: line-through;
+
+    html.dark & {
+      color: variable.$secondary-dark;
+    }
+  }
+
+  &__line {
+    border-bottom: 1px solid variable.$elements;
+    margin-bottom: 16px;
+
+    html.dark & {
+      border-bottom: 1px solid variable.$elements-dark;
+    }
+  }
+
+  &__descriptions {
+    margin-bottom: 8px;
+  }
+
+  &__descriptions-text {
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 1.2;
+    color: variable.$secondary;
+
+    html.dark & {
+      color: variable.$secondary-dark;
+    }
+  }
+
+  &__descriptions-value {
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 1.2;
+    color: variable.$primary;
+
+    html.dark & {
+      color: variable.$text-dark;
+    }
+  }
+
+  &__buttons {
+    margin-top: 8px;
+    gap: 8px;
+  }
+
+  &__button-buy {
+    flex: 1 1 70%;
+    height: 40px;
+    width: 175px;
+    padding: 0;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 1.5;
+    border-radius: variable.$global-border-radius;
+
+    background: linear-gradient(45deg, #89939a, #3e4246, #111112);
+    color: variable.$white;
+
+    html.dark & {
+      color: variable.$white;
+    }
+
+    @include mixins.on-desktop {
+      width: 160px;
+    }
+
+    &:hover {
+      box-shadow: 0px 3px 13px 0px variable.$shadow;
+      color: variable.$white;
+    }
+    &:active {
+      color: variable.$white;
+    }
+  }
+
+  &__button-buy--active {
+    background: variable.$white;
+    color: variable.$primary;
+    border: 1px solid variable.$icons;
+    border-radius: variable.$global-border-radius;
+
+    @include mixins.on-desktop {
+      width: 160px;
+    }
+
+    html.dark & {
+      background: variable.$icons;
+      color: variable.$primary;
+    }
+
+    &:hover {
+      box-shadow: 0px 4px 11px -2px variable.$shadow;
+      border-radius: variable.$global-border-radius;
+      html.dark & {
+        border: 1px solid transparent;
+        color: variable.$white;
+      }
+    }
+  }
+  &__button-wishlist {
+    height: 40px;
+    width: 40px;
+    background-image: url('../../../public/img/icons/Fav.svg');
+
+    &:hover {
+      border: 1px solid variable.$primary;
+    }
+
+    html.dark & {
+      background-image: url('../../../public/img/icons/Fav-White-Empty.svg');
+    }
+  }
+
+  &__button-wishlist--active {
+    height: 40px;
+    width: 40px;
+    background-image: url('../../../public/img/icons/IconsFav-Filled.svg');
+
+    html.dark & {
+      background-image: url('../../../public/img/icons/IconsFav-Filled-white.svg');
+    }
+
+    &:hover {
+      border: 1px solid variable.$primary;
+    }
+  }
+}

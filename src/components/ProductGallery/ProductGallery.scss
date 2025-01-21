@@ -1,0 +1,91 @@
+@use './../../styles/utils/mixins.scss';
+@use './../../styles/utils/variable.scss';
+@import './../../../node_modules/react-image-gallery/styles/scss/image-gallery.scss';
+
+.image-gallery {
+  width: 100%;
+  height: auto;
+}
+
+.image-gallery-content {
+  @include mixins.on-tablet {
+    display: flex;
+    flex-direction: row-reverse;
+    gap: 16px;
+    max-height: 100%;
+  }
+}
+
+.image-gallery-slide-wrapper img {
+  object-fit: contain;
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 1 / 1;
+}
+
+.image-gallery-slide-wrapper {
+  margin-bottom: 16px;
+  flex-grow: 1;
+}
+
+.image-gallery-thumbnails-container {
+  @include mixins.on-tablet {
+    display: flex;
+    flex-direction: column;
+    width: 50px;
+    align-items: center;
+  }
+
+  @include mixins.on-tablet2 {
+    width: 60px;
+  }
+
+  @include mixins.on-tablet3 {
+    width: 70px;
+  }
+
+  @include mixins.on-desktop-mini {
+    width: 80px;
+  }
+
+  @include mixins.on-desktop {
+    width: 85px;
+  }
+}
+
+.image-gallery-thumbnail {
+  margin-right: 8px;
+
+  @include mixins.on-tablet {
+    margin-right: 0;
+    margin-bottom: 8px;
+    width: 95%;
+  }
+
+  border: 1px solid variable.$elements;
+  border-radius: 4px;
+  transition: border variable.$button-transition-time ease;
+
+  img {
+    object-fit: contain;
+    aspect-ratio: 1 / 1;
+    transition: transform variable.$button-transition-time ease-in;
+  }
+
+  &:hover,
+  &.active {
+    border: 1px solid variable.$primary;
+
+    html.dark & {
+      border: 0.5px solid variable.$icons;
+    }
+
+    img {
+      transform: scale(0.9);
+    }
+  }
+
+  html.dark & {
+    border: 1px solid variable.$elements-dark;
+  }
+}

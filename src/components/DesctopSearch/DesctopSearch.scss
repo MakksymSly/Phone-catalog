@@ -1,0 +1,89 @@
+@use '../../styles/utils/mixins.scss' as mixins;
+@use '../../styles/utils/variable.scss';
+
+.search {
+  position: relative;
+}
+
+input.input {
+  min-width: 330px;
+  @media (min-width: 1250px) {
+    min-width: 350px;
+  }
+}
+
+input.input:focus {
+  border-color: none;
+  box-shadow: none;
+  border: 1px solid variable.$secondary;
+  html.dark & {
+    border-color: none;
+    border: 1px solid variable.$bgColor-dark;
+  }
+}
+.search-dropdown {
+  position: relative;
+
+  &__results {
+    position: absolute;
+    top: 40px;
+    left: 0;
+    min-width: 330px;
+    @media (min-width: 1250px) {
+      min-width: 350px;
+    }
+    padding: 15px;
+    z-index: 2;
+    background-color: variable.$white;
+    border: 1px solid variable.$secondary;
+    max-height: 250px;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    border-radius: 4px;
+
+    html.dark & {
+      background-color: variable.$text-dark;
+      color: variable.$primary;
+    }
+  }
+  &__no-results {
+    font-size: 14px;
+    text-align: start;
+  }
+  &__close {
+    position: absolute;
+    z-index: 9;
+    top: 8px;
+    right: 5px;
+    background: none;
+    border: none;
+    font-size: 2.4em;
+    color: #89939a;
+    padding-right: 10px;
+    cursor: pointer;
+    html.dark & {
+      color: variable.$primary;
+    }
+  }
+  &__item {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    font-size: 1.6em;
+    gap: 10px;
+    cursor: pointer;
+  }
+  &__input {
+    html.dark & {
+      background-color: variable.$text-dark;
+    }
+  }
+}
+
+.search-image {
+  width: 30px;
+  height: 30px;
+}
